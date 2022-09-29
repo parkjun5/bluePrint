@@ -1,9 +1,11 @@
 package example.blueprint.restapi.member.domain;
 
+import example.blueprint.restapi.member.application.dto.SignUpMemberDto;
 import lombok.Getter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.Collections;
 import java.util.Objects;
 import java.util.Set;
 
@@ -30,14 +32,14 @@ public class Member {
     @Embedded
     private Address address;
 
-    public static Member createMember(Member input, Address address) {
+    public static Member createMember(SignUpMemberDto signUpMemberDto) {
         Member member = new Member();
-        member.username = input.username;
-        member.password = input.password;
-        member.regNo = input.regNo;
-        member.name = input.name;
-        member.roles = input.roles;
-        member.address = address;
+        member.username = signUpMemberDto.getUsername();
+        member.password = signUpMemberDto.getPassword();
+        member.regNo = signUpMemberDto.getRegNo();
+        member.name = signUpMemberDto.getName();
+        member.roles = Collections.singleton(MemberRole.CUSTOMER);
+        member.address = signUpMemberDto.getAddress();
         return member;
     }
 

@@ -10,7 +10,7 @@ import java.security.GeneralSecurityException;
 import java.util.Base64;
 
 @Component
-public class CustomEncoder {
+public class RegNoEncoder {
     private static final String KEY = "BugLessBugLessBugLessBugLessBugL";
     private final String subStringedKey = new String(KEY.getBytes(StandardCharsets.UTF_8), 0, 16,  StandardCharsets.UTF_8);
 
