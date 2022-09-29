@@ -44,10 +44,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
 
-        httpSecurity.authorizeHttpRequests((auth) ->
-                        auth.mvcMatchers("/", "/signup", "/login", "/swagger-ui.html/**", "/swagger-ui.html#/**", "/v2/api-docs", "/configuration/ui",
+        httpSecurity.authorizeHttpRequests(auth ->
+                        auth.mvcMatchers("/", "/member/signup", "/login", "/swagger-ui.html/**", "/swagger-ui.html#/**", "/v2/api-docs", "/configuration/ui",
                                         "/configuration/security", "/webjars/**", "/v3/api-docs/**", "/swagger-resources", "/swagger-resources/**").permitAll()
-                .mvcMatchers("/**").authenticated())
+                .mvcMatchers("/**").permitAll())
                 .httpBasic().disable()
                 .formLogin().disable()
                 .addFilter(corsConfig.corsFilter())
