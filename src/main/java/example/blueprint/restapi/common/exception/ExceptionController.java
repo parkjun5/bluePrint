@@ -20,14 +20,13 @@ public class ExceptionController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ExceptionDto(e.getCode(), e.getMessage()));
     }
-    
+
     @ExceptionHandler
     public ResponseEntity<Object> badRequestExceptionHandler(MethodArgumentNotValidException e) {
         log.error(e.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ExceptionDto(400, "잘못된 요청" + e.getMessage()));
     }
-    
 
     @ExceptionHandler
     public ResponseEntity<Object> runtimeExceptionHandler(Exception e) {

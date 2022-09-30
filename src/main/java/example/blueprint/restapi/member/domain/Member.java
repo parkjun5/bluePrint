@@ -1,6 +1,6 @@
 package example.blueprint.restapi.member.domain;
 
-import example.blueprint.restapi.member.application.dto.SignUpMemberDto;
+import example.blueprint.restapi.member.application.dto.MemberSignupDto;
 import lombok.Getter;
 import org.hibernate.Hibernate;
 
@@ -32,7 +32,7 @@ public class Member {
     @Embedded
     private Address address;
 
-    public static Member createMember(SignUpMemberDto signUpMemberDto) {
+    public static Member createMember(MemberSignupDto signUpMemberDto) {
         Member member = new Member();
         member.username = signUpMemberDto.getUsername();
         member.password = signUpMemberDto.getPassword();

@@ -1,4 +1,4 @@
-package example.blueprint.restapi.member.application.repository;
+package example.blueprint.restapi.member.domain.repository;
 
 import example.blueprint.restapi.member.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;

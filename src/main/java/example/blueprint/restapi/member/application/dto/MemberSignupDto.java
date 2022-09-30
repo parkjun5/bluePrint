@@ -7,12 +7,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.security.GeneralSecurityException;
 import java.util.Objects;
 
@@ -20,14 +20,14 @@ import java.util.Objects;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignUpMemberDto {
+public class MemberSignupDto {
 
     @NotBlank
     @Email
     private String username;
 
     @NotBlank
-    @Length(min = 5, max = 30)
+    @Size(min = 5, max = 30)
     private String password;
 
     @NotBlank
@@ -56,7 +56,7 @@ public class SignUpMemberDto {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SignUpMemberDto that = (SignUpMemberDto) o;
+        MemberSignupDto that = (MemberSignupDto) o;
         return Objects.equals(getUsername(), that.getUsername()) && Objects.equals(getPassword(), that.getPassword()) && Objects.equals(getName(), that.getName()) && Objects.equals(getRegNo(), that.getRegNo()) && Objects.equals(getAddress(), that.getAddress());
     }
 

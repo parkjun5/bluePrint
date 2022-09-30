@@ -1,4 +1,4 @@
-package example.blueprint.restapi.member.application.repository;
+package example.blueprint.restapi.member.domain.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
